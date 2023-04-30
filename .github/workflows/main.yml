@@ -35,4 +35,5 @@ jobs:
           platforms: linux/amd64
 
       - name: Inspect
+        if: ${{ github.event_name == 'push' && env.BRANCH == 'master' }}
         run: docker inspect ghcr.io/cyb3r-jak3/tor_exit:latest 
